@@ -63,7 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth')
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -98,7 +98,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 #set a minimum length of 4 for the username
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-#spefify logon and redirect urls
+#specify logon and redirect urls
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 

@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,11 +10,41 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans"/>
 
     <title>Restaurant Vouchers</title>
   </head>
   <body>
-    <header class="container-fluid, fixed-top">test</header>
+      <div>
+        <nav class="navbar">
+        <div class="row">
+        <div class="col-s6">
+        </div>
+        <div class="container">
+        <div class="row">
+        <div class="column">
+            <a href="./index.html" class="multicolourtext">Home</a>
+            <a href="./readit.html" class="multicolourtext">Shopping Cart</a>
+            <a href="./watchit.html" class="multicolourtext">Currency</a>
+        </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="row">
+        <div class="column">
+            <a href="./index.html" class="multicolourtext">Restaurants</a>
+            <a href="./readit.html" class="multicolourtext">Cuisines</a>
+            <a href="./watchit.html" class="multicolourtext">Locations</a>
+            <a href="./watchit.html" class="multicolourtext">Sign Up/Login</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </nav>
+
+   {% block content %}
+   {% endblock %}
 
     {% if messages %}
     <div class="message-container"></div>
