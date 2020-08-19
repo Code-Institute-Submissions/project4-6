@@ -13,35 +13,63 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans"/>
 
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <title>Restaurant Vouchers</title>
   </head>
   <body>
       <div>
-        <nav class="navbar">
-        <div class="row">
-        <div class="col-s6">
-        </div>
-        <div class="container">
-        <div class="row">
-        <div class="column">
-            <a href="./index.html" class="multicolourtext">Home</a>
-            <a href="./readit.html" class="multicolourtext">Shopping Cart</a>
-            <a href="./watchit.html" class="multicolourtext">Currency</a>
-        </div>
-        </div>
-        </div>
-        <div class="container">
-        <div class="row">
-        <div class="column">
-            <a href="./index.html" class="multicolourtext">Restaurants</a>
-            <a href="./readit.html" class="multicolourtext">Cuisines</a>
-            <a href="./watchit.html" class="multicolourtext">Locations</a>
-            <a href="./watchit.html" class="multicolourtext">Sign Up/Login</a>
-        </div>
-        </div>
-        </div>
-        </div>
-        </nav>
+<nav class="navbar navbar-expand-md navbar-light navbar-background">
+    <h3 class="my-auto"><a class="navbar-brand" href="#">Restaurant Discount</a></h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse">
+	    <form class="form-inline ml-auto">
+            <div class="input-group">
+                <input type="text" class="form-control border-dark" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <ul class="navbar-nav ml-auto small mb-2 mb-md-0 navbar-background">
+            <li class="nav-item active">
+                <a class="nav-link py-1" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link py-1" href="./readit.html">Shopping Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link py-1" href="./watchit.html">Currency</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link py-1" href="#">Sign Up/Login</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</div>
+<div class="container banner-attributes">
+<div class="row banner-attributes align-items-center">
+    <div class="col s12 center d-flex">
+        <ul class="list-group list-group-horizontal-lg list-group-horizontal-xl list-unstyled mx-auto">           
+            <li class="nav-item active hozli">
+                <a class="nav-link py-1 hoza" href="./index.html">Restaurants</a>
+            </li>
+            <li class="nav-item hozli">
+                <a class="nav-link py-1 hoza" href="./readit.html">Cuisine</a>
+            </li>
+            <li class="nav-item hozli">
+                <a class="nav-link py-1 hoza" href="./watchit.html">Location</a>
+            </li>
+            <li class="nav-item hozli">
+                <a class="nav-link py-1 hoza" href="#">New Arrivals</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
 
    {% block content %}
    {% endblock %}

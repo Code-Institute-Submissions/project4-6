@@ -1,0 +1,23 @@
+.logo-font {
+    text-transform: uppercase;
+}
+
+.navbar-background {
+    background-color: #DFF944;
+}
+
+.hozli {
+padding: 2px 25px;
+text-decoration: none;
+font-size: 1.2em;
+font-weight: strong;
+border-radius: 15px 15px 15px 0;
+width: 200px;
+}
+
+.hoza {color: #ece5e4;}
+
+.banner-attributes {
+    background-color: #F308D3;
+    height: 60px;
+}
