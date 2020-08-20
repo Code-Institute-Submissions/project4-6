@@ -1,0 +1,230 @@
+[
+   {
+      "pk":1,
+      "model":"restaurants.restaurant",
+      "fields":{
+         "name":"South Indian Grill",
+         "description":"Dramatic flavours inspired by the traditional recipes of southern India.",
+         "location":1,
+         "cuisine":2,
+         "discount":5,
+         "image":"indian_south_indian_grill.jpg"
+      }
+   },
+   {
+      "pk":2,
+      "model":"restaurants.restaurant",
+      "fields":{
+         "name":"Gildos Italian",
+         "description":"The beautiful tastes of this dining experience are a discovery one only comes across a few times",
+         "location":1,
+         "cuisine":1,
+         "discount":10,
+         "image":"italian_Gildos Italian.jpg"
+      }
+   },
+   {
+    "pk":3,
+    "model":"restaurants.restaurant",
+    "fields":{
+       "name":"Times Square Diner",
+       "description":"The beautiful tastes of this dining experience are a discovery one only comes across a few times",
+       "location":1,
+       "cuisine":1,
+       "discount":10,
+       "image":"american_Times_Square_Diner.jpg"
+        }
+    },
+    {
+        "pk":4,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Times Square Diner",
+           "description":"The beautiful tastes of this dining experience are a discovery one only comes across a few times",
+           "location":2,
+           "cuisine":9,
+           "discount":10,
+           "image":"american_Times_Square_Diner.jpg"
+        }
+    },
+    {
+        "pk":5,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"The Buffalo Shack",
+           "description":"Recipes straight from the mid-west give The Buffalo Shack meals a distinctive stand out flavour.",
+           "location":1,
+           "cuisine":9,
+           "discount":15,
+           "image":"american_The_Buffalo_Shack.jpg"
+        }
+    },
+    {
+        "pk":6,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Kim's Palace",
+           "description":"If you are planning a get together with family and friends, Kim's Palace is the ideal spot for a fun gathering. Attractive dicsounts available!",
+           "location":2,
+           "cuisine":5,
+           "discount":25,
+           "image":"chinese_Kims Palace.jpg"
+        }
+    },
+    {
+        "pk":7,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Dragon Valley",
+           "description":"A la carte and buffet options available on weekdays and weekends.",
+           "location":3,
+           "cuisine":5,
+           "discount":7.5,
+           "image":"chinese_Dragon_Valley.jpg"
+        }
+    },
+    {
+        "pk":8,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"La Boulingerie",
+           "description":"An ideal place to meet with a friend for a coffee and pastry, don't miss out on the opportunity to visit this fabulous restaurant",
+           "location":4,
+           "cuisine":7,
+           "discount":5,
+           "image":"french_la_boulangerie.jpg"
+        }
+    },
+    {
+        "pk":9,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Yannik Corner",
+           "description":"The location and views from this gem are only the starting point of an unforgettable dining experience",
+           "location":5,
+           "cuisine":7,
+           "discount":5,
+           "image":"french_Yanniks_Corner.jpg"
+        }
+    },
+    {
+        "pk":10,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Yannik Corner",
+           "description":"The location and views from this gem are only the starting point of an unforgettable dining experience.",
+           "location":5,
+           "cuisine":7,
+           "discount":5,
+           "image":"french_Yanniks_Corner.jpg"
+        }
+    },
+    {
+        "pk":11,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Eiffel Grand",
+           "description":"Set in the heart of the night scene, this restaurant fails to disappoint.",
+           "location":1,
+           "cuisine":7,
+           "discount":5,
+           "image":"french_Eiffel_Grand.jpg"
+        }
+    },
+    {
+        "pk":12,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Kamala Mountain Route",
+           "description":"The owner of this restarant has received so many awards it would be too difficult to recount them here. Instead, go to the resturant and see for yourself!",
+           "location":2,
+           "cuisine":2,
+           "discount":10,
+           "image":"indian_Kamala_Mountain_Route.jpg"
+        }
+    },
+    {
+        "pk":13,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Shimla View",
+           "description":"North Indian Cuisine is behind most of the dishes in this restaurant. Subtle flavours expound, this restaurant has a loyal clientele.",
+           "location":2,
+           "cuisine":2,
+           "discount":10,
+           "image":"indian_Shimla_View.jpg"
+        }
+    },
+    {
+        "pk":14,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Jaipur to Dehli",
+           "description":"The traditional Indian mainstays are on offer here, and they are so good you may not want to go anywhere else!",
+           "location":1,
+           "cuisine":2,
+           "discount":7.5,
+           "image":"indian_Jaipur_to_Dehli.jpg"
+        }
+    },
+    {
+        "pk":15,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Himalayan Sunset",
+           "description":"A relaxed atmosphere alongside the most amazing Indian food will tempt you to this establishment over and over!",
+           "location":5,
+           "cuisine":2,
+           "discount":5,
+           "image":"indian_Himalayan_Sunset.jpg"
+        }
+    },
+    {
+        "pk":16,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Al Italia",
+           "description":"The Pizza and Pasta on offer here are the best in the city! This establishment offers great taste and even better value.",
+           "location":2,
+           "cuisine":1,
+           "discount":5,
+           "image":"italian_Al_Italia.jpg"
+        }
+    },
+    {
+        "pk":17,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"Florence Sights",
+           "description":"The owner and head chef of this restaurant hails from Florence, bringing local knowledge of the cuisine which never fails to disappoint.",
+           "location":4,
+           "cuisine":1,
+           "discount":10,
+           "image":"italian_Florence_Sights.jpg"
+        }
+    },
+    {
+        "pk":18,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"El Dorao",
+           "description":"All of your favourite Mexican dishes are available here, this restaurant draws a lively crowd at the weekends.",
+           "location":2,
+           "cuisine":3,
+           "discount":20,
+           "image":"mexican_El_Dorado.jpg"
+        }
+    },
+    {
+        "pk":19,
+        "model":"restaurants.restaurant",
+        "fields":{
+           "name":"La Cantina",
+           "description":"The decor is simple in contrast to the experience in this restaurant, which is heightened by the deep Mexican flavours and convivial surroundings",
+           "location":3,
+           "cuisine":3,
+           "discount":10,
+           "image":"mexican_Cantina.jpg"
+        }
+    }
+]
