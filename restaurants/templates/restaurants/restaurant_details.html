@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-{% load static %}
-
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -24,7 +21,7 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                        {% for restaurant in restaurants %}
+                        
                             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             
                                 <div class="card">
@@ -41,11 +38,12 @@
                                     </div>
                                     <div class="card-body">
                                         Buy Now!!
-                                        <a href="{% url 'restaurant_details' restaurant.id %}">Look at it</a><br>
+                                        <a href="{% url 'restaurant_details' restaurant.id %}" class="card-link">Look at it</a><br>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
+                        
                     
                 </div>
             </div>
