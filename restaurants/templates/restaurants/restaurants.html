@@ -14,9 +14,39 @@
 
 {% block content %}
     <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center mt-3">
+                    <h2 class="logo-font">Restaurants</h2>
+                    <hr class="w-50 mb-1">
+                </div>
+            </div>
         <div class="row">
             <div class="col">
-                {{ restaurants }}
+                <div class="row">
+                        {% for restaurant in restaurants %}
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            
+                                <div class="card">
+                                <br><h5 class="card-title text-center">{{ restaurant.name }}</h5>
+                                    <img class="card-img-top" style="height:225px" src=" {{ restaurant.image.url }} " alt="Card image cap">
+                                    <div class="card-body">
+                                            <p class="card-text" style="height:75px">{{ restaurant.description }}</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#" class="card-link">Make a Booking!</a><br>
+                                        Meal Discount: {{ restaurant.discount }}<br>
+                                        Discount Price: {{ restaurant.price }}<br>
+                                        Premium Members Discount Price: {{ restaurant.price }}<br>
+                                    </div>
+                                    <div class="card-body">
+                                        Buy Now!!
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    
+                </div>
             </div>
         </div>
     </div>

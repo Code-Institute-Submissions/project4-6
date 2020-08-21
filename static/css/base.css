@@ -19,5 +19,23 @@ width: 200px;
 
 .banner-attributes {
     background-color: #F308D3;
-    height: 60px;
 }
+
+.homepage {
+    background-image: url('/media/background_image.jpg'); 
+    background-size: cover;
+    height: 650px;
+    padding: 100px 0 0 0;
+    }
+
+.homepage-bubbles {
+    background-color: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .card-img-top {
+      height: 100px;
+  } 
+}
+

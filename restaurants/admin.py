@@ -18,6 +18,7 @@ class RestaurantAdmin(admin.ModelAdmin):
         'cuisine',
         'location',
         'discount',
+        'price',
         'image',
     )
 

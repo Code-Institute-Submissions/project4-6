@@ -20,6 +20,7 @@ class Restaurant(models.Model):
     location = models.ForeignKey('Location', null=True, blank=True, on_delete=models.SET_NULL)
     cuisine = models.ForeignKey('Cuisine', null=True, blank=True, on_delete=models.SET_NULL)
     discount = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=False, blank=False)
 
     def __str__(self):

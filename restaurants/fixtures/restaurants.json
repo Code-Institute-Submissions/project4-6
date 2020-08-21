@@ -8,6 +8,7 @@
          "location":1,
          "cuisine":2,
          "discount":5,
+         "price":15.00,
          "image":"indian_south_indian_grill.jpg"
       }
    },
@@ -20,6 +21,7 @@
          "location":1,
          "cuisine":1,
          "discount":10,
+         "price":40.00,
          "image":"italian_Gildos Italian.jpg"
       }
    },
@@ -32,6 +34,7 @@
        "location":1,
        "cuisine":1,
        "discount":10,
+       "price":30.00,
        "image":"american_Times_Square_Diner.jpg"
         }
     },
@@ -39,28 +42,17 @@
         "pk":4,
         "model":"restaurants.restaurant",
         "fields":{
-           "name":"Times Square Diner",
-           "description":"The beautiful tastes of this dining experience are a discovery one only comes across a few times",
-           "location":2,
-           "cuisine":9,
-           "discount":10,
-           "image":"american_Times_Square_Diner.jpg"
-        }
-    },
-    {
-        "pk":5,
-        "model":"restaurants.restaurant",
-        "fields":{
            "name":"The Buffalo Shack",
            "description":"Recipes straight from the mid-west give The Buffalo Shack meals a distinctive stand out flavour.",
            "location":1,
            "cuisine":9,
            "discount":15,
+           "price":50.00,
            "image":"american_The_Buffalo_Shack.jpg"
         }
     },
     {
-        "pk":6,
+        "pk":5,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Kim's Palace",
@@ -68,11 +60,12 @@
            "location":2,
            "cuisine":5,
            "discount":25,
+           "price":60.00,
            "image":"chinese_Kims Palace.jpg"
         }
     },
     {
-        "pk":7,
+        "pk":6,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Dragon Valley",
@@ -80,11 +73,12 @@
            "location":3,
            "cuisine":5,
            "discount":7.5,
+           "price":30.00,
            "image":"chinese_Dragon_Valley.jpg"
         }
     },
     {
-        "pk":8,
+        "pk":7,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"La Boulingerie",
@@ -92,11 +86,12 @@
            "location":4,
            "cuisine":7,
            "discount":5,
+           "price":20.00,
            "image":"french_la_boulangerie.jpg"
         }
     },
     {
-        "pk":9,
+        "pk":8,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Yannik Corner",
@@ -104,23 +99,12 @@
            "location":5,
            "cuisine":7,
            "discount":5,
+           "price":35.00,
            "image":"french_Yanniks_Corner.jpg"
         }
     },
     {
-        "pk":10,
-        "model":"restaurants.restaurant",
-        "fields":{
-           "name":"Yannik Corner",
-           "description":"The location and views from this gem are only the starting point of an unforgettable dining experience.",
-           "location":5,
-           "cuisine":7,
-           "discount":5,
-           "image":"french_Yanniks_Corner.jpg"
-        }
-    },
-    {
-        "pk":11,
+        "pk":9,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Eiffel Grand",
@@ -128,11 +112,12 @@
            "location":1,
            "cuisine":7,
            "discount":5,
+           "price":45.00,
            "image":"french_Eiffel_Grand.jpg"
         }
     },
     {
-        "pk":12,
+        "pk":10,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Kamala Mountain Route",
@@ -140,23 +125,25 @@
            "location":2,
            "cuisine":2,
            "discount":10,
+           "price":35.00,
            "image":"indian_Kamala_Mountain_Route.jpg"
         }
     },
     {
-        "pk":13,
+        "pk":11,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Shimla View",
            "description":"North Indian Cuisine is behind most of the dishes in this restaurant. Subtle flavours expound, this restaurant has a loyal clientele.",
            "location":2,
            "cuisine":2,
-           "discount":10,
+           "discount":50,
+           "price":80.00,
            "image":"indian_Shimla_View.jpg"
         }
     },
     {
-        "pk":14,
+        "pk":12,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Jaipur to Dehli",
@@ -164,23 +151,25 @@
            "location":1,
            "cuisine":2,
            "discount":7.5,
+           "price":25.00,
            "image":"indian_Jaipur_to_Dehli.jpg"
         }
     },
     {
-        "pk":15,
+        "pk":13,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Himalayan Sunset",
            "description":"A relaxed atmosphere alongside the most amazing Indian food will tempt you to this establishment over and over!",
            "location":5,
            "cuisine":2,
-           "discount":5,
+           "discount":40,
+           "price":75.00,
            "image":"indian_Himalayan_Sunset.jpg"
         }
     },
     {
-        "pk":16,
+        "pk":14,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Al Italia",
@@ -188,11 +177,12 @@
            "location":2,
            "cuisine":1,
            "discount":5,
+           "price":30.00,
            "image":"italian_Al_Italia.jpg"
         }
     },
     {
-        "pk":17,
+        "pk":15,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"Florence Sights",
@@ -200,11 +190,12 @@
            "location":4,
            "cuisine":1,
            "discount":10,
+           "price":40.00,
            "image":"italian_Florence_Sights.jpg"
         }
     },
     {
-        "pk":18,
+        "pk":16,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"El Dorao",
@@ -212,11 +203,12 @@
            "location":2,
            "cuisine":3,
            "discount":20,
+           "price":60.00,
            "image":"mexican_El_Dorado.jpg"
         }
     },
     {
-        "pk":19,
+        "pk":17,
         "model":"restaurants.restaurant",
         "fields":{
            "name":"La Cantina",
@@ -224,6 +216,7 @@
            "location":3,
            "cuisine":3,
            "discount":10,
+           "price":60.00,
            "image":"mexican_Cantina.jpg"
         }
     }

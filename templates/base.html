@@ -18,58 +18,77 @@
     <title>Restaurant Vouchers</title>
   </head>
   <body>
-      <div>
-<nav class="navbar navbar-expand-md navbar-light navbar-background">
-    <h3 class="my-auto"><a class="navbar-brand" href="#">Restaurant Discount</a></h3>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse">
-	    <form class="form-inline ml-auto">
-            <div class="input-group">
-                <input type="text" class="form-control border-dark" placeholder="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+           
+            <div class="navbar navbar-expand-md navbar-light navbar-background">
+                        <div class="navbar-brand">
+                Mighty Meal <br>Deals
+            </div>
+                <nav>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+                <div class="collapse navbar-collapse w-100 flex-md-column" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto small mb-2 mb-md-0 navbar-background">
+                        <li class="nav-item active">
+                            <a class="nav-link py-1" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-1" href="./readit.html">Shopping Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-1" href="./watchit.html">Currency</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-1" href="#">Sign Up/Login</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline ml-auto" method="GET" action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-dark" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+        
+                    <ul class="navbar-nav w-auto mx-auto list-group list-group-horizontal-lg list-group-horizontal-xl">
+                    <li class="nav-item active hozli dropdown">
+                        <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./index.html">Restaurants</a>
+
+                        <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                            <a href="" class="dropdown-item">By Cuisine</a>
+                            <a href="" class="dropdown-item ">By Location</a>
+                            <a href="" class="dropdown-item ">By Price</a>
+                            <a href="" class="dropdown-item">All Restaurants</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item hozli dropdown">
+                        <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./readit.html">Cuisine</a>
+
+                        <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                            <a href="" class="dropdown-item">By Cuisine</a>
+                            <a href="" class="dropdown-item ">By Location</a>
+                            <a href="" class="dropdown-item ">By Price</a>
+                            <a href="" class="dropdown-item">All Restaurants</a>
+                        </div>
+                    </li>
+                    <li class="nav-item hozli dropdown">
+                        <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./watchit.html">Location</a>
+
+                        <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                            <a href="" class="dropdown-item">By Cuisine</a>
+                            <a href="" class="dropdown-item ">By Location</a>
+                            <a href="" class="dropdown-item ">By Price</a>
+                            <a href="" class="dropdown-item">All Restaurants</a>
+                        </div>
+                    </li>
+                </ul>
                 </div>
             </div>
-        </form>
-        <ul class="navbar-nav ml-auto small mb-2 mb-md-0 navbar-background">
-            <li class="nav-item active">
-                <a class="nav-link py-1" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link py-1" href="./readit.html">Shopping Cart</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link py-1" href="./watchit.html">Currency</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link py-1" href="#">Sign Up/Login</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-</div>
-<div class="container banner-attributes">
-<div class="row banner-attributes align-items-center">
-    <div class="col s12 center d-flex">
-        <ul class="list-group list-group-horizontal-lg list-group-horizontal-xl list-unstyled mx-auto">           
-            <li class="nav-item active hozli">
-                <a class="nav-link py-1 hoza" href="./index.html">Restaurants</a>
-            </li>
-            <li class="nav-item hozli">
-                <a class="nav-link py-1 hoza" href="./readit.html">Cuisine</a>
-            </li>
-            <li class="nav-item hozli">
-                <a class="nav-link py-1 hoza" href="./watchit.html">Location</a>
-            </li>
-            <li class="nav-item hozli">
-                <a class="nav-link py-1 hoza" href="#">New Arrivals</a>
-            </li>
-        </ul>
-    </div>
-</div>
-</div>
+
+       
 
    {% block content %}
    {% endblock %}
