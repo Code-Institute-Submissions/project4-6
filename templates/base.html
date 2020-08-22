@@ -66,22 +66,23 @@
 
                     <li class="nav-item hozli dropdown">
                         <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./readit.html">Cuisine</a>
-
                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                            <a href="" class="dropdown-item">By Cuisine</a>
-                            <a href="" class="dropdown-item ">By Location</a>
-                            <a href="" class="dropdown-item ">By Price</a>
-                            <a href="" class="dropdown-item">All Restaurants</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Indian" class="dropdown-item">Indian</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Italian" class="dropdown-item">Italian</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Mexican" class="dropdown-item">Mexican</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Chinese" class="dropdown-item">Chinese</a>
+                            <a href="{% url 'restaurants' %}?cuisine=French" class="dropdown-item">French</a>
+                            <a href="{% url 'restaurants' %}?cuisine=American" class="dropdown-item">American</a>
                         </div>
                     </li>
                     <li class="nav-item hozli dropdown">
                         <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./watchit.html">Location</a>
-
                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                            <a href="" class="dropdown-item">By Cuisine</a>
-                            <a href="" class="dropdown-item ">By Location</a>
-                            <a href="" class="dropdown-item ">By Price</a>
-                            <a href="" class="dropdown-item">All Restaurants</a>
+                            <a href="{% url 'restaurants' %}?location=Dublin" class="dropdown-item">Dublin</a>
+                            <a href="{% url 'restaurants' %}?location=Cork" class="dropdown-item">Cork</a>
+                            <a href="{% url 'restaurants' %}?location=Galway" class="dropdown-item">Galway</a>
+                            <a href="{% url 'restaurants' %}?location=Limerick" class="dropdown-item">Limerick</a>
+                            <a href="{% url 'restaurants' %}?location=Kilkenny" class="dropdown-item">Kilkenny</a>
                         </div>
                     </li>
                 </ul>
