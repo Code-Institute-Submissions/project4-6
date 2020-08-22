@@ -34,7 +34,7 @@
                             <a class="nav-link py-1" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link py-1" href="./readit.html">Shopping Cart</a>
+                            <a class="nav-link py-1" href="{% url 'shoppingbag' %}">Shopping Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link py-1" href="./watchit.html">Currency</a>
@@ -57,9 +57,9 @@
                         <a class="nav-link py-1 hoza" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./index.html">Restaurants</a>
 
                         <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                            <a href="" class="dropdown-item">By Cuisine</a>
-                            <a href="" class="dropdown-item ">By Location</a>
-                            <a href="" class="dropdown-item ">By Price</a>
+                            <a href="{% url 'restaurants' %}?sort=cuisine&direction=asc" class="dropdown-item">By Cuisine</a>
+                            <a href="{% url 'restaurants' %}?sort=location&direction=asc" class="dropdown-item ">By Location</a>
+                            <a href="{% url 'restaurants' %}?sort=price&direction=asc" class="dropdown-item ">By Price</a>
                             <a href="{% url 'restaurants' %}" class="dropdown-item">All Restaurants</a>
                         </div>
                     </li>

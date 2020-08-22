@@ -18,6 +18,16 @@
             <div class="row">
                 <div class="col text-center mt-3">
                     <h2 class="logo-font">Restaurants</h2>
+                    {% for c in current_cuisine %}
+                    <a class="category-badge text-decoration-none" href="{% url 'restaurants' %}?cuisine={{ c }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c }}</span>
+                    </a>
+                    {% endfor %}
+                    {% for c in current_location %}
+                    <a class="category-badge text-decoration-none" href="{% url 'restaurants' %}?location={{ c }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c }}</span>
+                    </a>
+                    {% endfor %}
                     <hr class="w-50 mb-1">
                 </div>
             </div>
@@ -35,7 +45,14 @@
                                     </div>
                                     <div class="card-body">
                                         <a href="#" class="card-link">Make a Booking!</a><br>
-                                        Location: {{ restaurant.location }}<br>
+                                        <a class="text-muted" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.cuisine }}
+                                                </a>
+                                                <br>
+                                        <a class="text-muted" href="{% url 'restaurants' %}?location={{ restaurant.location }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.location }}
+                                                </a>
+                                                <br>
                                         Meal Discount: {{ restaurant.discount }}<br>
                                         Discount Price: {{ restaurant.price }}<br>
                                         Premium Members Discount Price: {{ restaurant.price }}<br>
