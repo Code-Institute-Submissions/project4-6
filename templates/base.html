@@ -34,7 +34,18 @@
                             <a class="nav-link py-1" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link py-1" href="{% url 'shoppingbag' %}">Shopping Cart</a>
+                            <a class="nav-link py-1" href="{% url 'shoppingbag' %}">Shopping Cart
+                                                        <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if total %}
+                                        ${{ total|floatformat:2 }}
+                                    {% else %}
+                                        $0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link py-1" href="./watchit.html">Currency</a>

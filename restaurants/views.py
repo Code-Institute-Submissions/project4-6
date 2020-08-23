@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Restaurant, Location, Cuisine
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 
 # Create your views here.
 
@@ -23,6 +24,12 @@ def restaurants(request):
                 sort_item = 'lower_name'
                 restaurants = restaurants.annotate(lower_name=Lower('name'))
 
+            if sort_item == 'cuisine':
+                sort_item = 'cuisine__name'
+
+            if sort_item == 'location':
+                sort_item = 'location__name'
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -36,6 +43,7 @@ def restaurants(request):
 
         if 'cuisine' in request.GET:
             this_cuisine = request.GET['cuisine'].split(',')
+            print(this_cuisine)
             restaurants = restaurants.filter(cuisine__name__in=this_cuisine)
             this_cuisine = Cuisine.objects.filter(name__in=this_cuisine)
 

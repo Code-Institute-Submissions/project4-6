@@ -32,13 +32,44 @@
                                     </div>
                                     <div class="card-body">
                                         <a href="#" class="card-link">Make a Booking!</a><br>
+                                                                                <a class="text-muted" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.cuisine }}
+                                                </a>
+                                                <br>
+                                        <a class="text-muted" href="{% url 'restaurants' %}?location={{ restaurant.location }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.location }}
+                                                </a>
+                                                <br>
                                         Meal Discount: {{ restaurant.discount }}<br>
                                         Discount Price: {{ restaurant.price }}<br>
                                         Premium Members Discount Price: {{ restaurant.price }}<br>
                                     </div>
                                     <div class="card-body">
                                         Buy Now!!
-                                        <a href="{% url 'restaurant_details' restaurant.id %}" class="card-link">Look at it</a><br>
+                    <form class="form" action="{% url 'add_to_shoppingbag' restaurant.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ restaurant.id }}" id="id_qty_{{ restaurant.id }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <a href="{% url 'restaurants' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Keep Shopping</span>
+                                </a>
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
                                     </div>
                                     </div>
                                 </div>

@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', #allauth requirement
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shoppingbag.contexts.shoppingbag_contents',
             ],
         },
     },
