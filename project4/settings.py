@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'home',
     'restaurants',
     'shoppingbag',
+    'checkoutitems'
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,8 @@ TEMPLATES = [
         },
     },
 ]
+
+MESSAGE_STORAGE = 'django.messages.contrib.storage.session.SessionStorage'
 
 #allauth requirement
 AUTHENTICATION_BACKENDS = [

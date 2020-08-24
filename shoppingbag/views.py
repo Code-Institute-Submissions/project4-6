@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse
+from restaurants.models import Restaurant
+from django.contrib import messages
 
 # Create your views here.
 
@@ -8,6 +10,8 @@ def shoppingbag(request):
 def add_to_shoppingbag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
+    restaurant = Restaurant.objects.get(pk=item_id)
+
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     shoppingbag = request.session.get('shoppingbag', {})
@@ -16,6 +20,7 @@ def add_to_shoppingbag(request, item_id):
         shoppingbag[item_id] += quantity
     else:
         shoppingbag[item_id] = quantity
+        messages.success(request, f'Added {{restaurant}} to your Shopping bag!')
 
     request.session['shoppingbag'] = shoppingbag
     print(request.session['shoppingbag'])
