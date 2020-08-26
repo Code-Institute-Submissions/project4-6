@@ -53,8 +53,20 @@
                         <li class="nav-item">
                             <a class="nav-link py-1" href="./watchit.html">Currency</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link py-1" href="#">Sign Up/Login</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sign Up/Login</a>
+                                <div class="dropdown-menu">
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <a class="dropdown-item" href="#">Admin Console</a>
+                                        {% endif %}
+                                        <a class="dropdown-item" href="{% url 'userprofile' %}">View Profile</a>
+                                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                                    {% else %}
+                                        <a href="{% url 'account_signup' %}" class="dropdown-item" href="#">Register</a>
+                                        <a href="{% url 'account_login' %}" class="dropdown-item" href="#">Login</a>
+                                    {% endif %}
+                                </div>
                         </li>
                     </ul>
                     <form class="form-inline ml-auto" method="GET" action="{% url 'restaurants' %}">
