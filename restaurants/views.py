@@ -80,10 +80,52 @@ def restaurant_details(request, restaurant_id):
 
 def add_restaurant(request):
     """ Add a restaurant to the store """
-    form = RestaurantForm()
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST, request.FILES)
+        if form.is_valid():
+            restaurant = form.save()
+            messages.success(request, 'Successfully added restaurant!')
+            return redirect(reverse('restaurant_details', args=[restaurant.id]))
+        else:
+            messages.error(request, 'Failed to add restaurant. Please ensure the form is valid.')
+    else:
+        form = RestaurantForm()
+
     template = 'restaurants/add_restaurant.html'
     context = {
         'form': form,
     }
 
+
     return render(request, template, context)
+
+
+def update_restaurant(request, restaurant_id):
+    """ Update a resturant in the store """
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST, request.FILES, instance=restaurant)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated restaurant!')
+            return redirect(reverse('restaurant_details', args=[restaurant.id]))
+        else:
+            messages.error(request, 'Failed to update restaurant. Please ensure the form is valid.')
+    else:
+        form = RestaurantForm(instance=restaurant)
+        messages.info(request, f'You are editing {restaurant.name}')
+
+    template = 'restaurants/update_restaurant.html'
+    context = {
+        'form': form,
+        'restaurant': restaurant,
+    }
+
+    return render(request, template, context)
+
+def remove_restaurant(request, restaurant_id):
+    """ Remove a restaurant from the store """
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
+    restaurant.delete()
+    messages.success(request, 'Restaurant deleted!')
+    return redirect(reverse('restaurants'))

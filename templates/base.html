@@ -58,7 +58,7 @@
                                 <div class="dropdown-menu">
                                     {% if request.user.is_authenticated %}
                                         {% if request.user.is_superuser %}
-                                            <a class="dropdown-item" href="#">Admin Console</a>
+                                            <a class="dropdown-item" href="{% url 'add_restaurant' %}">Restaurant Admin Console</a>
                                         {% endif %}
                                         <a class="dropdown-item" href="{% url 'userprofile' %}">View Profile</a>
                                         <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
