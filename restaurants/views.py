@@ -3,6 +3,7 @@ from .models import Restaurant, Location, Cuisine
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+from .forms import RestaurantForm
 
 # Create your views here.
 
@@ -76,3 +77,13 @@ def restaurant_details(request, restaurant_id):
     }
 
     return render(request, 'restaurants/restaurant_details.html', context)
+
+def add_restaurant(request):
+    """ Add a restaurant to the store """
+    form = RestaurantForm()
+    template = 'restaurants/add_restaurant.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)

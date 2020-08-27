@@ -8,10 +8,16 @@ class Cuisine(models.Model):
     def __str__(self):
         return self.name
 
+    def get_name(self):
+        return self.name
+
 class Location(models.Model):
     name = models.CharField(max_length=254)
 
     def __str__(self):
+        return self.name
+
+    def get_name(self):
         return self.name
 
 class Restaurant(models.Model):
