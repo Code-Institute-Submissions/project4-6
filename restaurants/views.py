@@ -4,9 +4,11 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .forms import RestaurantForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def restaurants(request):
 
     restaurants = Restaurant.objects.all()
@@ -68,6 +70,7 @@ def restaurants(request):
     }
     return render(request, 'restaurants/restaurants.html', context)
 
+@login_required
 def restaurant_details(request, restaurant_id):
 
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
@@ -78,8 +81,13 @@ def restaurant_details(request, restaurant_id):
 
     return render(request, 'restaurants/restaurant_details.html', context)
 
+@login_required
 def add_restaurant(request):
     """ Add a restaurant to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
     if request.method == 'POST':
         form = RestaurantForm(request.POST, request.FILES)
         if form.is_valid():
@@ -99,9 +107,13 @@ def add_restaurant(request):
 
     return render(request, template, context)
 
-
+@login_required
 def update_restaurant(request, restaurant_id):
     """ Update a resturant in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
     if request.method == 'POST':
         form = RestaurantForm(request.POST, request.FILES, instance=restaurant)
@@ -123,8 +135,13 @@ def update_restaurant(request, restaurant_id):
 
     return render(request, template, context)
 
+@login_required
 def remove_restaurant(request, restaurant_id):
     """ Remove a restaurant from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+        
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
     restaurant.delete()
     messages.success(request, 'Restaurant deleted!')

@@ -88,6 +88,13 @@
                                         Meal Discount: {{ restaurant.discount }}<br>
                                         Discount Price: {{ restaurant.price }}<br>
                                         Premium Members Discount Price: {{ restaurant.price }}<br>
+                                        {% if request.user.is_superuser %}
+                                            <small class="ml-3">
+                                                Admin actions:
+                                                <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
+                                                <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
+                                        </small>
+                                            {% endif %}
                                     </div>
                                     <div class="card-body">
                                         Buy Now!!

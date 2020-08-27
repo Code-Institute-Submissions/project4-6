@@ -44,6 +44,11 @@
                                         Discount Price: {{ restaurant.price }}<br>
                                         Premium Members Discount Price: {{ restaurant.price }}<br>
                                     </div>
+                                    <small class="ml-3">
+                                            Admin actions:
+                                            <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
+                                            <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
+                                        </small>
                                     <div class="card-body">
                                         Buy Now!!
                     <form class="form" action="{% url 'add_to_shoppingbag' restaurant.id %}" method="POST">

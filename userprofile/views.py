@@ -6,6 +6,7 @@ from .forms import UserProfileForm
 
 from checkoutitems.models import Order
 
+
 @login_required
 def userprofile(request):
     """ Display the user's profile. """
