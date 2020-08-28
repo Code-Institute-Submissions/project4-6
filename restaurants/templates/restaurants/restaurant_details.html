@@ -1,111 +1,93 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="container">
         <div class="container-fluid">
             <div class="row">
                 <div class="col text-center mt-3">
-                    <h2 class="logo-font">Restaurants</h2>
+                    <h2 class="logo-font">Restaurant Details</h2>
                     <hr class="w-50 mb-1">
                 </div>
             </div>
-        <div class="row">
-            <div class="col">
-                <div class="row">   
-                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            
-                                <div class="card">
-                                <br><h5 class="card-title text-center">{{ restaurant.name }}</h5>
-                                    {% if restaurant.image %}
-                                        <img class="card-img-top" style="height:300px" src=" {{ restaurant.image.url }} " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
-                                    {% else %}
-                                        <img class="card-img-top" style="height:300px" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
-                                    {% endif %}
-                                    <div class="card-body">
-                                            <p class="card-text" style="height:75px">{{ restaurant.description }}</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Make a Booking!</a><br>
-                                                                                <a class="text-muted" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.cuisine }}
-                                                </a>
-                                                <br>
-                                        <a class="text-muted" href="{% url 'restaurants' %}?location={{ restaurant.location }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.location }}
-                                                </a>
-                                                <br>
-                                        Meal Discount: {{ restaurant.discount }}<br>
-                                        Discount Price: {{ restaurant.price }}<br>
-                                        Premium Members Discount Price: {{ restaurant.price }}<br>
-                                    </div>
-                                    <small class="ml-3">
-                                            Admin actions:
-                                            <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
-                                            <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
-                                        </small>
-                                    <div class="card-body">
-                                        Buy Now!!
-                    <form class="form" action="{% url 'add_to_shoppingbag' restaurant.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-black rounded-0" 
-                                                data-item_id="{{ restaurant.id }}" id="decrement-qty_{{ restaurant.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-minus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ restaurant.id }}" id="id_qty_{{ restaurant.id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-black rounded-0"
-                                                data-item_id="{{ restaurant.id }}" id="increment-qty_{{ restaurant.id }}">
-                                                <span class="icon">
-                                                    <i class="fas fa-plus"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <a href="{% url 'restaurants' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
-                                </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            <div class="row">   
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 mx-auto w-100">
+                    <div class="card">
+                        <br>
+                        <h5 class="card-title text-center">{{ restaurant.name }}</h5>
+                        {% if restaurant.image %} 
+                            <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ restaurant.image.url }} " alt="{{ restaurant.name }}">
+                        {% else %}
+                            <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ restaurant.name }}">
+                        {% endif %}
+                        <div class="card-body mx-auto restaurant-description">
+                            <p class="card-text">{{ restaurant.description }}</p>
                         </div>
-                    </form>
-                                    </div>
+                        <div class="card-body pt-2 mx-auto restaurant-card-text">
+                            <div class="p-2">
+                                <a class="card-text" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">{{ restaurant.cuisine }}</a>
+                                restaurant in
+                                <a class="card-text" href="{% url 'restaurants' %}?location={{ restaurant.location }}">{{ restaurant.location }}</a>
+                            </div>
+                            <div class="card-text bg-warning">
+                                Voucher Cost: {{ restaurant.price }}<br>
+                                Discount Amount! {{ restaurant.discount }}%
+                            </div>
+                        </div >
+                        <div class="card-body pt-2 mx-auto restaurant-card-text">
+                        <form class="form" action="{% url 'add_to_shoppingbag' restaurant.id %}" method="POST">
+                        {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-12 mx-auto">
+                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <div class="form-group w-50 mx-auto">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-black rounded-0" 
+                                                    data-item_id="{{ restaurant.id }}" id="decrement-qty_{{ restaurant.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-minus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ restaurant.id }}" id="id_qty_{{ restaurant.id }}">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-black rounded-0"
+                                                    data-item_id="{{ restaurant.id }}" id="increment-qty_{{ restaurant.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="col-12">
+                                    <a href="{% url 'restaurants' %}" class="btn btn-black bg-info text-white rounded-0 text-uppercase mt-5">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase bg-info text-white">Keep Shopping</span>
+                                    </a>
+                                    <input type="submit" class="btn btn-black bg-info text-white rounded-0 text-uppercase mt-5" value="Add to Bag">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
-                        
-                    
+                        </form>
+                    </div>
+                    <div class="pt-3 card-body mx-auto restaurant-card-text">
+                            While you are here why not <a href="#" class="card-link">Make a Booking!</a><br>
+                            {% if request.user.is_superuser %}
+                                <small class="ml-3">
+                                    <p class="card-text">Admin:
+                                        <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
+                                        <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
+                                    </p>
+                                </small>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
+{% include 'restaurants/includes/quantity_input_script.html' %}
 {% endblock %}

@@ -20,37 +20,37 @@ html,body
 font-family: 'Chewy', serif;
 padding: 2px 25px;
 text-decoration: none;
-font-size: 1.5em;
+font-size: .8em;
 font-weight: strong;
-border-radius: 15px 15px 15px 0;
+border-radius: 0;
 width: 200px;
 }
 
-.verli {
-font-family: 'Chewy', serif;
-padding: 2px 25px;
-text-decoration: none;
-font-size: 1.2em;
-font-weight: strong;
-border-radius: 15px 15px 15px 0;
-width: 200px;
-text-align: right;
-}
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
   [class*="hozli"] {
-    font-size: .8em;
-    border-radius: 0;
+    font-size: 1.5em;
+    border-radius: 15px 15px 15px 0;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="verli"] {
-    text-align: left;
+.verli {
+    font-family: 'Chewy', serif;
+    padding: 2px 25px;
+    text-decoration: none;
     font-size: .8em;
+    font-weight: strong;
     border-radius: 0;
+    width: 200px;
+    text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  [class*="verli"] {
+    text-align: right;
+    font-size: 1.2em;
+    border-radius: 15px 15px 15px 0;
   }
 }
 
@@ -59,19 +59,6 @@ text-align: right;
     font-size: 3em;
 }
 
-.homepage {
-    background-image: url('/media/background_image_small.jpg'); 
-    background-size: cover;
-    height: 800px;
-    padding: 100px 0 0 0;
-    }
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .card-img-top {
-      height: 100px;
-  } 
-}
 
 .btt-link,
 .update-link,
@@ -80,6 +67,13 @@ text-align: right;
 }
 
 /* Homepage CSS */
+
+.homepage {
+    background-image: url('/media/background_image_small.jpg'); 
+    background-size: cover;
+    height: 800px;
+    padding: 100px 0 0 0;
+    }
 
 .homepage-largenotice {
     background-color: #FFFFFF;
@@ -106,19 +100,26 @@ a:hover {
 
 .restaurant-image {
   max-width: 75%;
-  height: 250px;
+  height: 150px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   /* For desktop: */
   .restaurant-image {
-      height: 100px;
+      height: 250px;
   } 
 }
 
 .restaurant-description {
   max-width: 75%;
-  height: 75px;
+  height: 160px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .restaurant-description {
+    height: 85px;
+  } 
 }
 
 .restaurant-card-text {

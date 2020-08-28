@@ -7,7 +7,6 @@
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Restaurants</h2>
                 <hr class="w-50 mb-1">
-
                     {% for c in current_cuisine %}
                     <a class="category-badge text-decoration-none" href="{% url 'restaurants' %}?cuisine={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Cuisine: {{ c.name }}</span>
@@ -54,24 +53,26 @@
                                     <br>
                                     <h5 class="card-title text-center">{{ restaurant.name }}</h5>
                                     {% if restaurant.image %} 
-                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ restaurant.image.url }} " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ restaurant.image.url }} " alt="{{ restaurant.name }}">
                                     {% else %}
-                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ restaurant.name }}">
                                     {% endif %}
                                     <div class="card-body mx-auto restaurant-description">
                                             <p class="card-text">{{ restaurant.description }}</p>
                                     </div>
-                                    <div class="card-body mx-auto restaurant-card-text restaurant-description">
+                                    <div class="card-body pt-2 mx-auto restaurant-card-text">
+                                            <div class="p-2">
                                             <a class="card-text" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">{{ restaurant.cuisine }}</a>
                                             restaurant in
                                             <a class="card-text" href="{% url 'restaurants' %}?location={{ restaurant.location }}">{{ restaurant.location }}</a>
-                                            <br>
-                                            Voucher Cost: {{ restaurant.discount }}<br>
-                                            Discount Amount! {{ restaurant.price }}%<br>
-                                    </div>
-                                        <br>
-                                        <div class="card-body mx-auto restaurant-card-text">
-                                            <a class="bg-info text-white p-3" href="{% url 'restaurant_details' restaurant.id %}">View Restaurant Details</a><br><br>
+                                            </div>
+                                            <div class="card-text bg-warning">
+                                                Voucher Cost: {{ restaurant.price }}<br>
+                                                Discount Amount! {{ restaurant.discount }}%
+                                            </div>
+                                    </div >
+                                    <div class="pt-3 card-body mx-auto restaurant-card-text">
+                                            <a class="bg-info text-white p-3" href="{% url 'restaurant_details' restaurant.id %}">Purchase Restaurant Voucher</a><br><br>
                                             While you are here why not <a href="#" class="card-link">Make a Booking!</a><br>
                                         {% if request.user.is_superuser %}
                                                 <small class="ml-3">
@@ -80,9 +81,8 @@
                                                         <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
                                                     </p>
                                                 </small>
-                                            </div>
                                         {% endif %}
-
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
