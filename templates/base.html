@@ -14,6 +14,7 @@
     <!-- Imported Fonts -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Chewy">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans">
     <!-- Project CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Javascript references -->
@@ -76,12 +77,12 @@
                     </form>
                     </li>
                 </ul>
-                <ul class="navbar-nav flex-md-column navbar-background hozli list-group list-group-horizontal-lg list-group-horizontal-lg list-group-horizontal-xl">
+                <ul class="navbar-nav flex-md-column navbar-background verli list-group list-group-horizontal-lg list-group-horizontal-lg list-group-horizontal-xl">
                     <li class="nav-item active">
-                        <a class="nav-link py-1" href="{% url 'homepage' %}">Home</a>
+                        <a class="nav-link" href="{% url 'homepage' %}">Home</a>
                     </li>
-                    <li class="nav-item" style="width: 150px;">
-                        <a class="nav-link py-1" style="width: 300px;" href="{% url 'shoppingbag' %}">Shopping Cart
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shoppingbag' %}">Shopping Cart
                                 <span class="my-0">
                                     {% if total %}
                                         ${{ total|floatformat:2 }}
@@ -92,8 +93,8 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sign Up/Login</a>
-                        <div class="dropdown-menu">
+                        <a class="nav-link navbar-background" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+                        <div class="dropdown-menu navbar-background">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a class="dropdown-item" href="{% url 'add_restaurant' %}">Restaurant Admin Console</a>
