@@ -1,7 +1,3 @@
-.logo-font {
-    text-transform: uppercase;
-}
-
 .navbar-background {
     background-color: #DFF944;
 }
@@ -9,22 +5,26 @@
 .hozli {
 padding: 2px 25px;
 text-decoration: none;
-font-size: 1.2em;
+font-size: .4em;
 font-weight: strong;
 border-radius: 15px 15px 15px 0;
 width: 200px;
 }
 
-.hoza {color: #ece5e4;}
+.title {
+    font-family: 'Chewy', serif;
+    font-size: .8em;
+}
 
-.banner-attributes {
-    background-color: #F308D3;
+body {
+    font-family: 'Open Sans', serif;
+    font-size: 48px;
 }
 
 .homepage {
-    background-image: url('/media/background_image.jpg'); 
+    background-image: url('/media/background_image_small.jpg'); 
     background-size: cover;
-    height: 650px;
+    height: 800px;
     padding: 100px 0 0 0;
     }
 

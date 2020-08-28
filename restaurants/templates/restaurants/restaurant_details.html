@@ -20,13 +20,16 @@
             </div>
         <div class="row">
             <div class="col">
-                <div class="row">
-                        
+                <div class="row">   
                             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             
                                 <div class="card">
                                 <br><h5 class="card-title text-center">{{ restaurant.name }}</h5>
-                                    <img class="card-img-top" style="height:225px" src=" {{ restaurant.image.url }} " alt="Card image cap">
+                                    {% if restaurant.image %}
+                                        <img class="card-img-top" style="height:300px" src=" {{ restaurant.image.url }} " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                    {% else %}
+                                        <img class="card-img-top" style="height:300px" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                    {% endif %}
                                     <div class="card-body">
                                             <p class="card-text" style="height:75px">{{ restaurant.description }}</p>
                                     </div>
