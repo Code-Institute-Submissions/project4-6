@@ -4,19 +4,24 @@
 {% block content %}
 <div class="container-fluid homepage">
     <div class="row">
-        <div class="col-sm-4 offset-sm-1 homepage-bubbles">
-            <h1 class="display-4 logo-font text-black ">
-                Your Mega Meal Deals are waiting!
+        <div class="col-sm-8 offset-sm-1 homepage-largenotice">
+            <h1 class="text-black">
+                Spend and Save with Munchies Mega Meal Deals!
             </h1>
         </div>
     </div>
-    <div class="row" style="height: 50px;">
+        <div class="row">
+        <div class="col-sm-6 offset-sm-1 homepage-largenotice">
+            <h1 class="text-black">
+                Purchase a restaurant voucher and receive a discount!
+            </h1>
+        </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 offset-sm-1 homepage-bubbles">
-            <h4 class="btn btn-lg rounded-0 display-4 logo-font text-black ">
-                <a href="{% url 'restaurants' %}">Shop Now</a>
-            </h4>
+        <div class="col-sm-3 offset-sm-1 homepage-largenotice">
+            <h1 class="text-black">
+                <a class="shopnow-link" href="{% url 'restaurants' %}">Shop Now!</a>
+            </h1>
         </div>
     </div>
 </div>

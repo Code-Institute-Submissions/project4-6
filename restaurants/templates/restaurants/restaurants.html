@@ -1,28 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-
-{% load static %}
-
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
-    <div class="container">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col text-center mt-3">
-                    <h2 class="logo-font">Restaurants</h2>
-                    c sohuld be inder her
-                    {{ current_cuisine }}
-                    {{ current_location }}
-                    current sorting is
-                    {{ current_sorting }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Restaurants</h2>
+                <hr class="w-50 mb-1">
+
                     {% for c in current_cuisine %}
                     <a class="category-badge text-decoration-none" href="{% url 'restaurants' %}?cuisine={{ c.name }}">
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Cuisine: {{ c.name }}</span>
@@ -33,9 +18,16 @@
                         <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">Location: {{ c.name }}</span>
                     </a>
                     {% endfor %}
-
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
+                    <div class="col-12 col-md-6 order-md-first">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            {% if search_term or current_categories or current_sorting != 'None_None' %}
+                                <span class="small"><a href="{% url 'restaurants' %}">Restaurants Home</a> | </span>
+                            {% endif %}
+                            {{ restaurants|length }} Restaurants{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                        </p>
+                    </div>
+                    <div class="pb-3 col-12 col-md-12 col-sm-6 order-md-last d-flex justify-content-end justify-content-md-end">
+                        <div class="sort-select-wrapper w-30">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
@@ -51,16 +43,6 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'restaurants' %}">Restaurants Home</a> | </span>
-                            {% endif %}
-                            {{ restaurants|length }} Restaurants{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                        </p>
-                    </div>
-                    
-                    <hr class="w-50 mb-1">
                 </div>
             </div>
         <div class="row">
@@ -68,46 +50,42 @@
                 <div class="row">
                         {% for restaurant in restaurants %}
                             <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            
                                 <div class="card">
-                                <br><h5 class="card-title text-center">{{ restaurant.name }}</h5>
-                                    {% if restaurant.image %}
-                                        <img class="card-img-top" style="height:300px" src=" {{ restaurant.image.url }} " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                    <br>
+                                    <h5 class="card-title text-center">{{ restaurant.name }}</h5>
+                                    {% if restaurant.image %} 
+                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ restaurant.image.url }} " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
                                     {% else %}
-                                        <img class="card-img-top" style="height:300px" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
+                                        <img class="card-img-top restaurant-image rounded mx-auto d-block" src=" {{ MEDIA_URL }}restaurant_noimage.jpg " alt="{{ MEDIA_URL }}restaurant_noimage_new.jpg">
                                     {% endif %}
-                                    <div class="card-body">
-                                            <p class="card-text" style="height:75px">{{ restaurant.description }}</p>
+                                    <div class="card-body mx-auto restaurant-description">
+                                            <p class="card-text">{{ restaurant.description }}</p>
                                     </div>
-                                    <div class="card-body">
-                                        <a href="#" class="card-link">Make a Booking!</a><br>
-                                        <a class="text-muted" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.cuisine }}
-                                                </a>
-                                                <br>
-                                        <a class="text-muted" href="{% url 'restaurants' %}?location={{ restaurant.location }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ restaurant.location }}
-                                                </a>
-                                                <br>
-                                        Meal Discount: {{ restaurant.discount }}<br>
-                                        Discount Price: {{ restaurant.price }}<br>
-                                        Premium Members Discount Price: {{ restaurant.price }}<br>
+                                    <div class="card-body mx-auto restaurant-card-text restaurant-description">
+                                            <a class="card-text" href="{% url 'restaurants' %}?cuisine={{ restaurant.cuisine }}">{{ restaurant.cuisine }}</a>
+                                            restaurant in
+                                            <a class="card-text" href="{% url 'restaurants' %}?location={{ restaurant.location }}">{{ restaurant.location }}</a>
+                                            <br>
+                                            Voucher Cost: {{ restaurant.discount }}<br>
+                                            Discount Amount! {{ restaurant.price }}%<br>
+                                    </div>
+                                        <br>
+                                        <div class="card-body mx-auto restaurant-card-text">
+                                            <a class="bg-info text-white p-3" href="{% url 'restaurant_details' restaurant.id %}">View Restaurant Details</a><br><br>
+                                            While you are here why not <a href="#" class="card-link">Make a Booking!</a><br>
                                         {% if request.user.is_superuser %}
-                                            <small class="ml-3">
-                                                Admin actions:
-                                                <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
-                                                <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
-                                        </small>
-                                            {% endif %}
-                                    </div>
-                                    <div class="card-body">
-                                        Buy Now!!
-                                        <a href="{% url 'restaurant_details' restaurant.id %}">Look at it</a><br>
-                                    </div>
+                                                <small class="ml-3">
+                                                    <p class="card-text">Admin:
+                                                        <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
+                                                        <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
+                                                    </p>
+                                                </small>
+                                            </div>
+                                        {% endif %}
+
                                 </div>
                             </div>
                         {% endfor %}
-                    
                 </div>
             </div>
         </div>
