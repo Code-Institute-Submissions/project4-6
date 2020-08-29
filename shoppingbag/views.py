@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from restaurants.models import Restaurant
 from django.contrib import messages
 
@@ -33,10 +33,12 @@ def update_shoppingbag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     shoppingbag = request.session.get('shoppingbag', {})
 
-    if item_id in list(shoppingbag.keys()):
-        shoppingbag[item_id] += quantity
-    else:
-        shoppingbag[item_id] = quantity
+    """ if item_id in list(shoppingbag.keys()): """
+    """        shoppingbag[item_id] = quantity """
+    """else: """
+    """ Update the quantity to the value specified in the quantity input box """
+
+    shoppingbag[item_id] = quantity
 
     request.session['shoppingbag'] = shoppingbag
     print(request.session['shoppingbag'])
@@ -44,10 +46,10 @@ def update_shoppingbag(request, item_id):
     return redirect(reverse('shoppingbag'))
 
 def remove_shoppingbag_item(request, item_id):
-    """ Update the shopping bag """
+    """ Remove an item from the shopping bag """
     try:
         shoppingbag = request.session.get('shoppingbag', {})
-        bag.pop(item_id)
+        shoppingbag.pop(item_id)
 
         request.session['shoppingbag'] = shoppingbag
         print(request.session['shoppingbag'])

@@ -123,6 +123,8 @@ def checkout_completed(request, order_number):
         # Attach the user's profile to the order
         order.user_profile = userprofile
         order.save()
+        print("printing order")
+        print(order)
 
         # Save the user's info
         if save_info:

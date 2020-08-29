@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="card-text bg-warning">
                                                 Voucher Cost: {{ restaurant.price }}<br>
-                                                Discount Amount! {{ restaurant.discount }}%
+                                                Discount Amount! {{ restaurant.discount|floatformat:0 }}%
                                             </div>
                                     </div >
                                     <div class="pt-3 card-body mx-auto restaurant-card-text">

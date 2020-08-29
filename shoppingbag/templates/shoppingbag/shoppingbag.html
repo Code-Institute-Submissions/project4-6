@@ -3,24 +3,32 @@
 {% load shoppingbag_tools %}
 
 {% block content %}
-
-<div class="container-fluid">
-    <div class="row">
-        {% if shoppingbag_items %}
-                         <div class="table-responsive rounded">
-                        <table class="table table-sm table-borderless">
-                            <thead class="text-black">
-                                <tr>
-                                    <th scope="col">Restaurant Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Subtotal</th>
-                                </tr>
-                            </thead>
+    <div class="container-fluid">    
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">My Shopping Cart</h2>
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row shoppingbag-items">
+            {% if shoppingbag_items %}
+                             <div class="table-responsive rounded">
+                            <table class="table table-sm .table-sm ">
+                                <thead class="text-black text-center">
+                                    <tr>
+                                        <th scope="col">Restaurant:</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">Voucher Cost:</th>
+                                        <th scope="col">Quantity:</th>
+                                        <th scope="col">Subtotal:</th>
+                                    </tr>
+                                </thead>
 
                             {% for item in shoppingbag_items %}
-                                <tr>
+                                <tr class="text-center">
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ item.restaurant.name }}</strong></p>
+                                    </td>
                                     <td class="p-3 w-25">
                                         {% if item.restaurant.image %}
                                             <img class="w-100" src="{{ item.restaurant.image.url }}"  alt="{{ item.restaurant.name }}">
@@ -29,13 +37,10 @@
                                         {% endif %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.restaurant.name }}</strong></p>
-                                    </td>
-                                    <td class="py-3">
                                         <p class="my-0">${{ item.restaurant.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'update_shoppingbag' item.item_id">
+                                        <form class="form shoppingbag-quantity-boxsize mx-auto update-form" method="POST" action="{% url 'update_shoppingbag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -62,9 +67,8 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
+                                        <a class="update-link text-info float-left"><small>Update</small></a>
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
-
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.restaurant.price | calculate_subtotal:item.quantity }}</p>
@@ -78,13 +82,13 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'restaurants' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <a href="{% url 'restaurants' %}" class="bg-info text-white p-3 btn btn-outline-black rounded-0 btn-lg">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkoutitems' %}" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{% url 'checkoutitems' %}" class="bg-info text-white p-3 btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -107,10 +111,6 @@
     <div class="row" style="height: 50px;">
     </div>
 </div>
-{% endblock %}
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
     // Update quantity on click
@@ -123,7 +123,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
+        var url = `/shoppingbag/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'itemId': itemId};
 
         $.post(url, data)
@@ -133,4 +133,5 @@
     })
 </script>
 
+{% include 'restaurants/includes/quantity_input_script.html' %}
 {% endblock %}

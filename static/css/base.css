@@ -125,3 +125,36 @@ a:hover {
 .restaurant-card-text {
     text-align: center;
 }
+
+/* Shopping bag page CSS */
+
+.shoppingbag-items {
+    font-family: 'One Sans', serif;
+    text-decoration: none;
+    font-size: .8em;
+    font-weight: strong;
+    border-radius: 0;
+    text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  [class*="shoppingbag-items"] {
+    text-align: right;
+    font-size: 1.2em;
+    border-radius: 15px 15px 15px 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+[class*="shoppingbag-quantity-boxsize"] {
+    width: 80%;
+  }
+}
+
+/* Checkout CSS */
+
+.checkout-text {
+    font-family: 'Open Sans', serif;
+}
