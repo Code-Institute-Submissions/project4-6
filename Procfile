@@ -1,1 +1,1 @@
-web: gunicorn munchies-mega-meal-deals.wsgi:application
+web: gunicorn project4.wsgi:application
