@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-@login_required
 def restaurants(request):
 
     restaurants = Restaurant.objects.all()
@@ -70,7 +69,7 @@ def restaurants(request):
     }
     return render(request, 'restaurants/restaurants.html', context)
 
-@login_required
+
 def restaurant_details(request, restaurant_id):
 
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)

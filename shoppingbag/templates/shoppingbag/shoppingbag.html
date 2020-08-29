@@ -10,20 +10,19 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
-        <div class="row shoppingbag-items">
             {% if shoppingbag_items %}
-                             <div class="table-responsive rounded">
-                            <table class="table table-sm .table-sm ">
-                                <thead class="text-black text-center">
-                                    <tr>
-                                        <th scope="col">Restaurant:</th>
-                                        <th scope="col"></th>
-                                        <th scope="col">Voucher Cost:</th>
-                                        <th scope="col">Quantity:</th>
-                                        <th scope="col">Subtotal:</th>
-                                    </tr>
-                                </thead>
-
+                <div class="row shoppingbag-items">
+                    <div class="table-responsive rounded">
+                        <table class="table table-sm .table-sm ">
+                            <thead class="text-black text-center">
+                                <tr>
+                                    <th scope="col">Restaurant:</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Voucher Cost:</th>
+                                    <th scope="col">Quantity:</th>
+                                    <th scope="col">Subtotal:</th>
+                                </tr>
+                            </thead>
                             {% for item in shoppingbag_items %}
                                 <tr class="text-center">
                                     <td class="py-3">
@@ -41,21 +40,18 @@
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form shoppingbag-quantity-boxsize mx-auto update-form" method="POST" action="{% url 'update_shoppingbag' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        <span>
+                                                            <i class="fas fa-minus fa-sm"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-sm btn-black rounded-0"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
@@ -98,27 +94,37 @@
                             </tr>
                         </table>
                     </div>
-                {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
-                    <a href="{% url 'restaurants' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
-                {% endif %}
-    </div>
-    <div class="row" style="height: 50px;">
-    </div>
-</div>
+                </div>
+            {% else %}
+                <div class="row pt-5">
+                    <div class="col-12 mx-auto" align="center">
+                        <h4 class="mb-5">Your bag is empty.</h4>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-12 mx-auto" align="center">
+                        <a href="{% url 'restaurants' %}" class="bg-info text-white p-3 btn btn-black rounded-0 btn-lg btn btn-outline-black rounded-0 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+{{ block.super }}
 
 <script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+    // Scroll to top button
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
 
+<script type="text/javascript">
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
