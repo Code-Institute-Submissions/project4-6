@@ -20,7 +20,7 @@ def add_to_shoppingbag(request, item_id):
         shoppingbag[item_id] += quantity
     else:
         shoppingbag[item_id] = quantity
-        messages.success(request, f'Added {{restaurant}} to your Shopping bag!')
+        messages.success(request, f'Added {restaurant.name} to your Shopping bag!')
 
     request.session['shoppingbag'] = shoppingbag
     print(request.session['shoppingbag'])
