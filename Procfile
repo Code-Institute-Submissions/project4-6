@@ -1,0 +1,1 @@
+web: gunicorn munchies-mega-meal-deals.wsgi:application
