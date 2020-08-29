@@ -162,3 +162,16 @@ a:hover {
 .checkout-text {
     font-family: 'Open Sans', serif;
 }
+
+/* allauth CSS */
+
+.allauth-border { 
+    border-width:3px !important; 
+    }
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+[class*="allauth-colwidth"] {
+    width: 75%;
+  }
+}

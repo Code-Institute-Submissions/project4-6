@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+Munchies Mega Meal Deals Confirmation for Order Number {{ order.order_number }}

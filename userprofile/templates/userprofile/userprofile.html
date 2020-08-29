@@ -15,11 +15,11 @@
             </div>
         <div class="row">
             <div class="col-10 mx-auto">
-                <p class="text-muted">Default Delivery Information</p>
+                <p class="text-muted">Default Billing Information</p>
                 <form class="mt-3" action="{% url 'userprofile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                    <button class="bg-info text-white pt-3 btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
             <div class="col-10 mx-auto">

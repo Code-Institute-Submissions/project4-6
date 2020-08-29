@@ -1,1 +1,19 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid p-5">
+        <div class="row checkout-text pt-1">
+            <div class="col-lg-6 col-md-6 col-sm-12 mx-auto border border-success rounded p-3 allauth-border" align="center">
+                <div class="allauth-form-inner-content">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+                <div class="row checkout-text pt-5">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mx-auto p-3" align="center">
+                        <a class="bg-info text-white p-1 btn btn-outline-black rounded-0 w-50" href="{% url 'homepage' %}">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
