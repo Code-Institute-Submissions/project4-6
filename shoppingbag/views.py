@@ -7,6 +7,7 @@ from django.contrib import messages
 def shoppingbag(request):
     return render(request, 'shoppingbag/shoppingbag.html')
 
+
 def add_to_shoppingbag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
