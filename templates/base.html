@@ -11,7 +11,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Imported Fonts -->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Chewy">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans">
    
@@ -50,22 +49,22 @@
                     <li class="nav-item hozli dropdown">
                         <a class="nav-link py-1 navbar-background" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./readit.html">Cuisine</a>
                         <div class="dropdown-menu border-0 navbar-background" aria-labelledby="all-products-link">
-                            <a href="{% url 'restaurants' %}?cuisine=Indian" class="dropdown-item">Indian</a>
-                            <a href="{% url 'restaurants' %}?cuisine=Italian" class="dropdown-item">Italian</a>
-                            <a href="{% url 'restaurants' %}?cuisine=Mexican" class="dropdown-item">Mexican</a>
-                            <a href="{% url 'restaurants' %}?cuisine=Chinese" class="dropdown-item">Chinese</a>
-                            <a href="{% url 'restaurants' %}?cuisine=French" class="dropdown-item">French</a>
-                            <a href="{% url 'restaurants' %}?cuisine=American" class="dropdown-item">American</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Indian" class="dropdown-item li-dropdown">Indian</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Italian" class="dropdown-item li-dropdown">Italian</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Mexican" class="dropdown-item li-dropdown">Mexican</a>
+                            <a href="{% url 'restaurants' %}?cuisine=Chinese" class="dropdown-item li-dropdown">Chinese</a>
+                            <a href="{% url 'restaurants' %}?cuisine=French" class="dropdown-item li-dropdown">French</a>
+                            <a href="{% url 'restaurants' %}?cuisine=American" class="dropdown-item li-dropdown">American</a>
                         </div>
                     </li>
                     <li class="nav-item hozli dropdown">
                         <a class="nav-link py-1 navbar-background" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="./watchit.html">Location</a>
                         <div class="dropdown-menu border-0 navbar-background" aria-labelledby="all-products-link">
-                            <a href="{% url 'restaurants' %}?location=Dublin" class="dropdown-item">Dublin</a>
-                            <a href="{% url 'restaurants' %}?location=Cork" class="dropdown-item">Cork</a>
-                            <a href="{% url 'restaurants' %}?location=Galway" class="dropdown-item">Galway</a>
-                            <a href="{% url 'restaurants' %}?location=Limerick" class="dropdown-item">Limerick</a>
-                            <a href="{% url 'restaurants' %}?location=Kilkenny" class="dropdown-item">Kilkenny</a>
+                            <a href="{% url 'restaurants' %}?location=Dublin" class="dropdown-item li-dropdown">Dublin</a>
+                            <a href="{% url 'restaurants' %}?location=Cork" class="dropdown-item li-dropdown">Cork</a>
+                            <a href="{% url 'restaurants' %}?location=Galway" class="dropdown-item li-dropdown">Galway</a>
+                            <a href="{% url 'restaurants' %}?location=Limerick" class="dropdown-item li-dropdown">Limerick</a>
+                            <a href="{% url 'restaurants' %}?location=Kilkenny" class="dropdown-item li-dropdown">Kilkenny</a>
                         </div>
                     </li>
                     <li>
@@ -95,17 +94,17 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link navbar-background" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+                        <a class="nav-link navbar-background" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
                         <div class="dropdown-menu navbar-background">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a class="dropdown-item" href="{% url 'add_restaurant' %}">Restaurant Admin Console</a>
+                                    <a class="dropdown-item" href="{% url 'add_restaurant' %}">Admin</a>
                                 {% endif %}
-                                <a class="dropdown-item" href="{% url 'userprofile' %}">View Profile</a>
-                                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                                <a class="dropdown-item li-dropdown" href="{% url 'userprofile' %}">View Profile</a>
+                                <a class="dropdown-item li-dropdown" href="{% url 'account_logout' %}">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item" href="#">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item" href="#">Login</a>
+                                <a class="dropdown-item li-dropdown" href="{% url 'account_signup' %}">Register</a>
+                                <a class="dropdown-item li-dropdown" href="{% url 'account_login' %}">Login</a>
                             {% endif %}
                         </div>
                     </li>
