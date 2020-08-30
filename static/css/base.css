@@ -30,20 +30,6 @@ width: 200px;
     font-size: .8em;
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  [class*="hozli"] {
-    font-size: 1.5em;
-    border-radius: 15px 15px 15px 0;
-  }
-  .li-dropdown {
-    font-size: 1em;
-  }
-  .title {
-      font-size: 2.5em;
-  }
-}
-
 .verli {
     font-family: 'Chewy', serif;
     padding: 2px 25px;
@@ -55,20 +41,10 @@ width: 200px;
     text-align: left;
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  [class*="verli"] {
-    text-align: right;
-    font-size: 1.2em;
-    border-radius: 15px 15px 15px 0;
-  }
-}
-
 .title {
     font-family: 'Chewy', serif;
     font-size: 1.5em;
 }
-
 
 .btt-link,
 .update-link,
@@ -79,6 +55,26 @@ width: 200px;
 .btt-link:hover {
   background-color: rgba(85, 85, 85, 0.068); /* Add a dark-grey background on hover */
 }
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .hozli {
+    font-size: 1.5em;
+    border-radius: 15px 15px 15px 0;
+  }
+  .verli {
+    text-align: right;
+    font-size: 1.2em;
+    border-radius: 15px 15px 15px 0;
+  }
+  .li-dropdown {
+    font-size: 1em;
+  }
+  .title {
+      font-size: 2.5em;
+  }
+}
+
 
 /* Homepage CSS */
 
@@ -157,16 +153,12 @@ a:hover {
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
-  [class*="shoppingbag-items"] {
+  .shoppingbag-items {
     text-align: right;
     font-size: 1.2em;
     border-radius: 15px 15px 15px 0;
   }
-}
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-[class*="shoppingbag-quantity-boxsize"] {
+  .shoppingbag-quantity-boxsize {
     width: 80%;
   }
 }
@@ -192,7 +184,7 @@ a:hover {
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
-[class*="allauth-colwidth"] {
+  .allauth-colwidth {
     width: 75%;
   }
 }
