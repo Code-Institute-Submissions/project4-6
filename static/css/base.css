@@ -26,8 +26,8 @@ border-radius: 0;
 width: 200px;
 }
 
-.narbar-brand {
-    font-size: .7em;
+.li-dropdown {
+    font-size: .1em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -36,6 +36,9 @@ width: 200px;
     font-size: 1.5em;
     border-radius: 15px 15px 15px 0;
   }
+  .li-dropdown {
+    font-size: .4em;
+}
 }
 
 .verli {
