@@ -108,7 +108,7 @@ AUTHENTICATION_BACKENDS = [
 
 #allauth requirement
 SITE_ID = 1
-EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #allow authentication using usernames or email addresses
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
