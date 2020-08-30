@@ -52,7 +52,6 @@
             </div>
         </div>
             <div class="col-12 col-lg-6 mx-auto">
-                <p class="text-muted">Please fill out the form below to complete your order</p>
                 <form class="mx-auto" action="{% url 'checkoutitems' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">

@@ -26,11 +26,18 @@ border-radius: 0;
 width: 200px;
 }
 
+.narbar-brand {
+    font-size: .8em;
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   [class*="hozli"] {
     font-size: 1.5em;
     border-radius: 15px 15px 15px 0;
+  }
+[class*="navbar-brand"] {
+    font-size: 1.5em;
   }
 }
 
