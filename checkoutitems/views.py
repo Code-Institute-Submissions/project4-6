@@ -16,7 +16,6 @@ import json
 @require_POST
 def cache_checkoutitems_data(request):
     try:
-        print("trying the thing")
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
@@ -117,14 +116,13 @@ def checkout_completed(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    order_line_item = get_object_or_404(OrderLineItem, order=order_number)
 
     if request.user.is_authenticated:
         userprofile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = userprofile
         order.save()
-        print("printing order")
-        print(order)
 
         # Save the user's info
         if save_info:
@@ -151,6 +149,9 @@ def checkout_completed(request, order_number):
     template = 'checkoutitems/checkout_completed.html'
     context = {
         'order': order,
+        'order_line_item': order_line_item,
     }
+    print("printing line otem")
+    print("order_line_item")
 
     return render(request, template, context)
