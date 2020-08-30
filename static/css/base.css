@@ -88,7 +88,7 @@ width: 200px;
     border-radius: 25px;
     font-family: 'Chewy', serif;
     padding: 30px;
-    font-size: .2em;
+    font-size: .1em;
 }
 
 .shopnow-link {
@@ -115,6 +115,9 @@ a:hover {
   /* For desktop: */
   .restaurant-image {
       height: 250px;
+  }
+  .homepage-largenotice {
+      font-size: .2em;    
   } 
 }
 
