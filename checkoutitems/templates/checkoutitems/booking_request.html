@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% load shoppingbag_tools %}
+
+{% block content %}
+    <div class="container-fluid">    
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Make a Restaurant Booking ({{ restaurant_count }})</h2>
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6 order-lg-last mb-5 mx-auto">
+                <form class="mx-auto" action="{% url 'booking_request' %}" method="POST">
+                    {% csrf_token %}
+
+('full_name', 'email', 'phone_number',
+                  'restaurant', 'number_people',
+                  'date', 'time',)
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Full Name</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Email Address</legend>
+                        {{ order_form.phone_number | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Phone Number</legend>
+                        {{ order_form.country | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Restaurant</legend>
+                        {{ order_form.postcode | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Number of People</legend>
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Date</legend>
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        <legend class="fieldset-label small text-black px-2 w-auto">Time</legend>
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0">
+							{% if user.is_authenticated %}
+								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
+
+                    <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'shoppingbag' %}" class="bg-info text-white p-3 btn btn-outline-black rounded-0">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span class="font-weight-bold">Update Bag</span>
+						</a>
+						<button id="submit-button" class="bg-info text-white p-3  btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Order</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>
+						</p>
+					</div>
+                </form>
+            </div>
+        <div id="loading-overlay">
+            <h1 class="text-light loading-spinner">
+                <span class="icon">
+                    <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                </span>
+            </h1>
+        </div>
+    </div>
+
+{{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkoutitems/js/stripe_elements.js' %}"></script>
+{% endblock %}
+

@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 def restaurants(request):
 
     restaurants = Restaurant.objects.all()
@@ -15,7 +16,7 @@ def restaurants(request):
     this_location = None
     this_cuisine = None
     sort = None
-    direction= None
+    direction = None
 
     if request.GET:
 
@@ -52,7 +53,8 @@ def restaurants(request):
         if 'search_text' in request.GET:
             search_query = request.GET['search_text']
             if not search_query:
-                messages.error(request, "No input found, please enter search criteria!")
+                messages.error(
+                    request, "No input found, please enter search criteria!")
                 return redirect(reverse('restaurants'))
 
             queries = Q(name__icontains=search_query)
@@ -80,21 +82,24 @@ def restaurant_details(request, restaurant_id):
 
     return render(request, 'restaurants/restaurant_details.html', context)
 
+
 @login_required
 def add_restaurant(request):
     """ Add a restaurant to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = RestaurantForm(request.POST, request.FILES)
         if form.is_valid():
             restaurant = form.save()
             messages.success(request, 'Successfully added restaurant!')
-            return redirect(reverse('restaurant_details', args=[restaurant.id]))
+            return redirect(
+                reverse('restaurant_details', args=[restaurant.id]))
         else:
-            messages.error(request, 'Failed to add restaurant. Please ensure the form is valid.')
+            messages.error(
+                request, 'Add Failed. Please ensure the form is valid.')
     else:
         form = RestaurantForm()
 
@@ -103,8 +108,8 @@ def add_restaurant(request):
         'form': form,
     }
 
-
     return render(request, template, context)
+
 
 @login_required
 def update_restaurant(request, restaurant_id):
@@ -119,7 +124,8 @@ def update_restaurant(request, restaurant_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated restaurant!')
-            return redirect(reverse('restaurant_details', args=[restaurant.id]))
+            return redirect(
+                reverse('restaurant_details', args=[restaurant.id]))
         else:
             messages.error(request, 'Failed to update restaurant. Please ensure the form is valid.')
     else:
@@ -134,13 +140,14 @@ def update_restaurant(request, restaurant_id):
 
     return render(request, template, context)
 
+
 @login_required
 def remove_restaurant(request, restaurant_id):
     """ Remove a restaurant from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
     restaurant.delete()
     messages.success(request, 'Restaurant deleted!')

@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from shoppingbag.contexts import shoppingbag_contents
 import stripe
@@ -67,14 +67,15 @@ def checkoutitems(request):
                     order_line_item.save()
                 except Restaurant.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products not in the database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('shoppingbag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_completed', args=[order.order_number]))
+            return redirect(reverse(
+                'checkout_completed', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -82,7 +83,8 @@ def checkoutitems(request):
 
         shoppingbag = request.session.get('shoppingbag', {})
         if not shoppingbag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment")
             return redirect(reverse('restaurants'))
 
         current_shoppingbag = shoppingbag_contents(request)
@@ -97,8 +99,8 @@ def checkoutitems(request):
         order_form = OrderForm()
 
     if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
 
     template = 'checkoutitems/checkoutitems.html'
     context = {
@@ -134,7 +136,8 @@ def checkout_completed(request, order_number):
                 'default_street_address2': order.street_address2,
                 'default_county': order.county,
             }
-            user_profile_form = UserProfileForm(userprofile_data, instance=userprofile)
+            user_profile_form = UserProfileForm(
+                userprofile_data, instance=userprofile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 

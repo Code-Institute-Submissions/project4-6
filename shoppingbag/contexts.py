@@ -1,7 +1,6 @@
-from decimal import Decimal
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from restaurants.models import Restaurant
+
 
 def shoppingbag_contents(request):
 
@@ -20,7 +19,7 @@ def shoppingbag_contents(request):
             'quantity': quantity,
             'restaurant': restaurant,
         })
-    
+
     context = {
         'shoppingbag_items': shoppingbag_items,
         'total': total,

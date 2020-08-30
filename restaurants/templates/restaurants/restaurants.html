@@ -73,14 +73,16 @@
                                     </div >
                                     <div class="pt-3 card-body mx-auto restaurant-card-text">
                                             <a class="bg-info text-white p-3" href="{% url 'restaurant_details' restaurant.id %}">Purchase Restaurant Voucher</a><br><br>
-                                            <!-- While you are here why not <a href="#" class="card-link">Make a Booking!</a><br> -->
+                                    <!--    {% if user.is_authenticated %}
+                                                    5% EXTRA discount for authenticated users if you <a href="{% url 'booking_request' restaurant.id %}"" class="card-link">Make a Booking!</a><br>
+                                            {% endif %} -->
                                         {% if request.user.is_superuser %}
-                                                <small class="ml-3">
+                                                <span class="ml-3">
                                                     <p class="card-text">Admin:
                                                         <a href="{% url 'update_restaurant' restaurant.id %}">Update Restaurant Details</a> | 
                                                         <a class="text-danger" href="{% url 'remove_restaurant' restaurant.id %}">Remove Restaurant</a>
                                                     </p>
-                                                </small>
+                                                </span>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -130,3 +132,5 @@
         })
     </script>
 {% endblock %}
+
+
