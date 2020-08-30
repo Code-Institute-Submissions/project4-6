@@ -3,18 +3,6 @@
 /* Fix for white space/padding outside the body */
 /* https://stackoverflow.com/questions/4617872/white-space-showing-up-on-right-side-of-page-when-background-image-should-extend */
 
-body { 
-    margin:0;
-    padding:0;
-}
-
-.container {
-     padding-right: 0; /*15px in bootstrap.css*/
-     padding-left: 0;  /*idem*/
-     margin-right: 0;
-     margin-left: 0;
-}
-
 html,body
 {
     width: 100%;
