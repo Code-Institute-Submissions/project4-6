@@ -36,9 +36,6 @@ width: 200px;
     font-size: 1.5em;
     border-radius: 15px 15px 15px 0;
   }
-[class*="navbar-brand"] {
-    font-size: 1.5em;
-  }
 }
 
 .verli {
@@ -63,7 +60,7 @@ width: 200px;
 
 .title {
     font-family: 'Chewy', serif;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 
