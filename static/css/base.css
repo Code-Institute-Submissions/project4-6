@@ -27,7 +27,7 @@ width: 200px;
 }
 
 .li-dropdown {
-    font-size: .1em;
+    font-size: .8em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -37,8 +37,8 @@ width: 200px;
     border-radius: 15px 15px 15px 0;
   }
   .li-dropdown {
-    font-size: .4em;
-}
+    font-size: 1em;
+  }
 }
 
 .verli {
