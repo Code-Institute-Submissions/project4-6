@@ -7,7 +7,7 @@ Order Date: {{ order.date }}
 
 Order Total: ${{ order.grand_total }}
 
-{{ order_line_item }}
+{{ order.lineitems.all }}
 
 Please present your voucher when paying for your meal and your discount will be applied.
 
