@@ -116,7 +116,6 @@ def checkout_completed(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    order_line_item = get_object_or_404(OrderLineItem, order=order_number)
 
     if request.user.is_authenticated:
         userprofile = UserProfile.objects.get(user=request.user)
@@ -149,9 +148,6 @@ def checkout_completed(request, order_number):
     template = 'checkoutitems/checkout_completed.html'
     context = {
         'order': order,
-        'order_line_item': order_line_item,
     }
-    print("printing line otem")
-    print("order_line_item")
 
     return render(request, template, context)
