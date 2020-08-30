@@ -1,0 +1,35 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your order at Munchies Mega Meal Deals. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.grand_total }}
+
+{{ order.lineitems.all }}
+
+                    {% for item in order.lineitems.all %}
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-0 text-black">
+                                {{ item.restaurant.name }}
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ item.quantity }} voucher(s) @ ${{ item.restaurant.price }} each</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+Please present your voucher when paying for your meal and your discount will be applied.
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Sincerely,
+
+Munchies Mega Meal Deals.
