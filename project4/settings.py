@@ -17,6 +17,7 @@ else:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
+#DEBUG = True
 
 ALLOWED_HOSTS = ['munchies-mega-meal-deals.herokuapp.com', 'localhost']
 

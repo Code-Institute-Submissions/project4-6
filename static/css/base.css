@@ -21,7 +21,6 @@ font-family: 'Chewy', serif;
 padding: 2px 25px;
 text-decoration: none;
 font-size: .8em;
-font-weight: strong;
 border-radius: 0;
 width: 200px;
 }
@@ -35,7 +34,6 @@ width: 200px;
     padding: 2px 25px;
     text-decoration: none;
     font-size: .8em;
-    font-weight: strong;
     border-radius: 0;
     width: 200px;
     text-align: left;
@@ -146,7 +144,6 @@ a:hover {
     font-family: 'Open Sans', serif;
     text-decoration: none;
     font-size: .8em;
-    font-weight: strong;
     border-radius: 0;
     text-align: left;
 }
