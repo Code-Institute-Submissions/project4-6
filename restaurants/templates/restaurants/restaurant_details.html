@@ -75,9 +75,6 @@
                         </form>
                     </div>
                     <div class="pt-3 card-body mx-auto restaurant-card-text">
-                    <!--    {% if user.is_authenticated %}
-                            5% EXTRA discount for authenticated users if you <a href="{% url 'booking_request' restaurant.id %}"" class="card-link">Make a Booking!</a><br>
-                        {% endif %} -->
                             {% if request.user.is_superuser %}
                                 <small class="ml-3">
                                     <span class="card-text">Admin:

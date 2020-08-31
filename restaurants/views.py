@@ -152,3 +152,14 @@ def remove_restaurant(request, restaurant_id):
     restaurant.delete()
     messages.success(request, 'Restaurant deleted!')
     return redirect(reverse('restaurants'))
+
+
+def rest(request):
+
+    rest = Restaurant.objects.all()
+
+    context = {
+        'rest': rest,
+    }
+
+    return render(request, 'restaurants/rest.html', context)
