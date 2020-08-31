@@ -151,6 +151,11 @@ The following teachnologies were used in creating this project:
 **Django:**
 * Django provided the framework within which the website was developed, using a base project application and a number of added django apps, regerencing the site https://www.djangoproject.com/
 
+**Stripe:**
+* The website was configured to integrate with the Stripe payment system for the purposes of accepting online payments - https://stripe.com/ - for test credit cards only.
+
+**Postgres:**
+* A postgres database was provisioned as a resource in Heroku for the purposes of creating an online website for the database, and the fixtures created for the project were used to update the restaurant, cuisine and location databases which hold the core website data.
 
 ## **Testing**
 
