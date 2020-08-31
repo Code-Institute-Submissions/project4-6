@@ -45,7 +45,6 @@ class StripeWH_Receiver:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
-        print(intent)
         pid = intent.id
         shoppingbag = intent.metadata.shoppingbag
         save_info = intent.metadata.save_info
@@ -92,8 +91,6 @@ class StripeWH_Receiver:
                 time.sleep(1)
         if order_exists:
             self._send_confirmation_email(order)
-            print("printing order 2")
-            print(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
@@ -114,8 +111,6 @@ class StripeWH_Receiver:
                     original_bag=shoppingbag,
                     stripe_pid=pid,
                 )
-                print("printing order 3")
-                print(order)
                 for item_id, item_data in json.loads(shoppingbag).items():
                     restaurant = Restaurant.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
